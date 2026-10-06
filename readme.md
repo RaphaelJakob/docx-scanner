@@ -22,6 +22,5 @@ Every function takes a file path as a string and has a docstring that describes 
 - Punctuation gets deleted, and nothing replaces it. A word like "don't" turns into "dont", which I am happy with for this project.
 - For finding punctuation I chose the pattern `[^\w\s]` over `string.punctuation`. Word often swaps straight quotes for curly ones and adds long dashes, and the `string.punctuation` list misses both of those.
 - I use `Counter` instead of building my own dictionary, because it counts the words for me.
-- My `common_words` list holds only the most general grammar words, such as "the", "and" and "of". Gendered pronouns like "she" and "her" are not in it, because they say something about who a book is about.
 - To build a phrase, I join a word with its neighbours using `" ".join(...)`. An `if` check stops the loop early enough that it never asks for a word past the end of the list.
 - Each phrase function reads `docimport_clean` once and keeps the result in a variable, so the Word file is only opened one time per call.
